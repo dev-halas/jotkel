@@ -1,0 +1,179 @@
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
+    height: -moz-available;         
+    height: -webkit-fill-available;  
+    height: fill-available;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #fff;
+    height: -moz-available;         
+    height: -webkit-fill-available;  
+    height: fill-available;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+$lightBlue: #E0ECFC;
+$blue: #188BF0;
+$darkBlue: #0057A4;
+$white: #ffffff;
+$dark: #154575;
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+h1,h2,h3,h4 {
+    line-height: 1.5;
+}
+
+$breakpoints: (
+  'mobile':  480px,
+  'small': 768px,
+  'tablet': 1024px,
+  'laptop':  1200px,
+  'large': 1600px,
+  'fullhd': 1920px
+) !default;
+
+@mixin responsive($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+   
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+body {
+    
+    font-size: 14px;
+    color: $dark;
+
+    @include responsive('tablet') {
+        font-size: 12px;
+        color: $dark
+    }
+}
+
+
+$container: 80vw;
+$containerMobile: 90vw;
+
+.container {
+    width: MIN($container, 1400px);
+    margin: 0 auto;
+    position: relative;
+    @include responsive('tablet') {
+        width: MIN($containerMobile, 900px);
+    }
+}
+
+@media screen and (max-width: 782px) {
+    html {
+        margin-top: 0px !important;
+    }
+}
+
+.container--big {
+    position: relative;
+    width: 90vw;
+    margin: auto;
+}
+
+.bgText--blue, .bgText--darkBlue {
+    font-size: clamp(26px, 3vw, 45px);
+    line-height: 1;
+    padding: clamp(10px, 1vw, 20px) clamp(15px, 1.5vw, 30px);
+    color: $white;
+    margin-bottom: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.bgText--blue {
+    background-color: $blue;
+}
+
+.bgText--darkBlue {
+    background-color: $dark;
+}
+
+.textBlue {
+    color: $blue;
+}
+
+.button--lightBlue {
+    background-color: $lightBlue;
+    padding: 12px 36px;
+    border: 1px solid $blue;
+    width: fit-content;
+    font-weight: 700;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.button--white {
+    background-color: transparent;
+    color: $white;
+    padding: 12px 36px;
+    border: 1px solid $white;
+    width: fit-content;
+    font-weight: 700;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.order_-1 {
+    @include responsive('small') {
+        order: -1;
+    }
+}

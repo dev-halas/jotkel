@@ -1,0 +1,23 @@
+//@import url("https://unpkg.com/swiper/swiper-bundle.min.css");
+
+/* ------ BASE css ----- */
+
+@import "./base/reset.scss";
+@import "./base/core.scss";
+
+/* ------ Layouts ------ */
+@import "./layout/home.scss";
+@import "./layout/header.scss";
+@import "./layout/primaryLinks.scss";
+
+//@import "./layout/grid.scss";
+
+/* ------ Components ------ */
+
+@import "./components/categorySidebar.scss";
+
+
+
+
+
+@import "./layout/footer.scss";
