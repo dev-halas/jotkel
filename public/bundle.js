@@ -90,13 +90,80 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _css_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _css_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var _css_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_styles_scss__WEBPACK_IMPORTED_MODULE_0__);
-//require('./js/nazwapliku');
+__webpack_require__(1);
+__webpack_require__(2);
+__webpack_require__(3);
+
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+const mobileMenu = document.querySelector('.navMobile--menu')
+const burger = document.querySelector('.navMobile--burger')
+const header = document.querySelector('header')
+const mobileMenuLinks = document.querySelectorAll('.navMobile--burger a')
+
+console.log('test')
+
+burger.addEventListener('click', () => {
+    header.classList.toggle('open')
+})
+
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        header.classList.remove('open')
+    })
+})
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+const categorySidebar = document.querySelector('.categorySidebar') 
+
+
+
+    const categorySpan = document.querySelectorAll('.categoryParent span')
+
+    categorySpan.forEach(category => {
+        category.addEventListener('click', () => {
+            category.parentElement.classList.toggle('categoryActive')
+        })
+    })
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+const homeSlider = document.querySelector('.homeSlider');
+
+if(homeSlider !== null) {
+
+    const homeSliders = document.querySelectorAll('.homeSlide')
+
+    const removeActive = () => {
+        homeSliders.forEach(slide => {
+            slide.classList.remove('--active')
+        })
+    }
+    
+    homeSliders.forEach(slide => {
+        slide.addEventListener('click', () => {
+            removeActive()
+            slide.classList.add('--active')
+        })
+    })
+
+}
+    
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
