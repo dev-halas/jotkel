@@ -5,9 +5,11 @@ const mobileMenuLinks = document.querySelectorAll('.navMobile--burger a')
 
 console.log('test')
 
-burger.addEventListener('click', () => {
+const headerToggle = () => {
     header.classList.toggle('open')
-})
+}
+
+burger.addEventListener('click', () => headerToggle)
 
 mobileMenuLinks.forEach(link => {
     link.addEventListener('click', () => {

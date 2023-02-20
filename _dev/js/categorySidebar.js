@@ -1,11 +1,11 @@
 const categorySidebar = document.querySelector('.categorySidebar') 
 
+    const categorySpan = document.querySelectorAll('.categoryParent > span')
 
-
-    const categorySpan = document.querySelectorAll('.categoryParent span')
+    const toggleCategory = () => {
+        category.parentElement.classList.add('categoryActive')
+    }
 
     categorySpan.forEach(category => {
-        category.addEventListener('click', () => {
-            category.parentElement.classList.toggle('categoryActive')
-        })
+        category.addEventListener('click', () => toggleCategory)
     })
