@@ -109,9 +109,11 @@ const mobileMenuLinks = document.querySelectorAll('.navMobile--burger a')
 
 console.log('test')
 
-burger.addEventListener('click', () => {
+const headerToggle = () => {
     header.classList.toggle('open')
-})
+}
+
+burger.addEventListener('click', () => headerToggle)
 
 mobileMenuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -125,14 +127,14 @@ mobileMenuLinks.forEach(link => {
 
 const categorySidebar = document.querySelector('.categorySidebar') 
 
+    const categorySpan = document.querySelectorAll('.categoryParent > span')
 
-
-    const categorySpan = document.querySelectorAll('.categoryParent span')
+    const toggleCategory = () => {
+        category.parentElement.classList.add('categoryActive')
+    }
 
     categorySpan.forEach(category => {
-        category.addEventListener('click', () => {
-            category.parentElement.classList.toggle('categoryActive')
-        })
+        category.addEventListener('click', () => toggleCategory)
     })
 
 
